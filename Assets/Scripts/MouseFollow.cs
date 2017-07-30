@@ -27,5 +27,6 @@ public class MouseFollow : MonoBehaviour
         
 		Quaternion localRotation = Quaternion.Euler(currentRotation.x, currentRotation.y, 0.0f);
         transform.rotation = localRotation;
+
     }
 }
