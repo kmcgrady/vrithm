@@ -19,7 +19,7 @@ public class LoadActivities : MonoBehaviour {
 		var postHeader = new Hashtable();
 		postHeader.Add("Content-Type", "application/json");
 		var jsonString = "{ \"query\": \"{\\n  me(id: 2) {\\n    firstName,\\n    activities {\\n      id,\\n      name,\\n      dueDate,\\n      isPublished\\n    }\\n  }\\n}\" }";
-		string url = "http://localhost:8000/api";
+		string url = "http://www.vrithm.com/api";
 		WWW www = new WWW(url, encoding.GetBytes(jsonString), postHeader);
 		StartCoroutine(WaitForRequest(www));
 	}

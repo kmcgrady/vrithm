@@ -24,7 +24,7 @@ public class Activity : MonoBehaviour {
 		postHeader.Add("Content-Type", "application/json");
 		var jsonString = "{ \"query\": \"{\\n  activity(id: " + this.id + ") {\\n    name,\\n    problems {\\n      id,\\n      name,\\n      sceneUrl,\\n      imageUrl\\n    }\\n  }\\n}\\n\"}";
 
-		string url = "http://localhost:8000/api";
+		string url = "http://www.vrithm.com/api";
 		WWW www = new WWW(url, encoding.GetBytes(jsonString), postHeader);
 		StartCoroutine(WaitForRequest(www));
 	}
