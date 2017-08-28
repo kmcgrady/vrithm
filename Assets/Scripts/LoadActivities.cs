@@ -7,8 +7,14 @@ using SimpleJSON;
 
 public class LoadActivities : MonoBehaviour {
 
+	bool hasRun = false;
 	// Use this for initialization
 	void Start () {
+		if (hasRun) {
+			return;
+		}
+
+		hasRun = true;
 		var encoding = new System.Text.UTF8Encoding();
 		var postHeader = new Hashtable();
 		postHeader.Add("Content-Type", "application/json");
@@ -30,7 +36,7 @@ public class LoadActivities : MonoBehaviour {
 			for (int i = 1; i <= 5; i++) {
 				if (i <= activities.Count) {
 					var activity = activities [i - 1];
-					Activity a = GameObject.Find ("Activity (" + (i) + ")").GetComponent<Activity> ();
+					Activity a = GameObject.Find ("Activity (" + i + ")").GetComponent<Activity> ();
 					a.id = activity ["id"];
 					Text activityViewText = GameObject.Find ("Activity (" + (i) + ")/TextContainer/TopLine/Text").GetComponent<Text> ();
 					activityViewText.text = activity ["name"];
